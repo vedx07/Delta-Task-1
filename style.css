@@ -1,0 +1,72 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #161E30;
+}
+.container{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+}
+.box1{
+    width: 50%;
+    height: 100%;
+    /* background-color: blanchedalmond; */
+
+}
+.box2{
+    width: 50%;
+    height: 100%;
+    /* background-color: aqua; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.scorecard,.control,.instructions-card{
+    width: 80%;
+    /* height: 200px; */
+    background-color:rgba(0, 0, 0, 0.8);
+    border-radius: 5px;
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.2);
+     display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+.card-title{
+    font-size: 2.5rem;
+    font-weight: 700;
+    padding: 5px;
+}
+.card-msg{
+    font-size: 1rem;
+    padding: 5px;
+}
+.card-main-msg{
+    font-size: 1.5rem;
+    color: rgb(255, 4, 4);
+     padding: 5px;
+}
+.score-cards{
+    display: flex;
+    
+}
+.score-card{
+    margin: 10px;
+}
+.red-score{
+    text-align: center;
+    font-size: 2rem;
+    color:  rgb(255, 4, 4);
+}
+.blue-score{
+    text-align: center;
+    font-size: 2rem;
+    color:  rgb(34, 123, 255);
+}
+
