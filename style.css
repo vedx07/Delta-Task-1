@@ -97,7 +97,7 @@ body{
     height: 20px;
     width: 20px;
     border-radius: 50%;
-    /* background-color:pink; */
+    background-color:pink;
     border: 2px solid black;
     display: inline-block;
     cursor: pointer;

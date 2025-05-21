@@ -1,47 +1,79 @@
 let red = { titan: 4, score: 0 };
 let blue = { titan: 4, score: 0 };
-let nodes = document.querySelectorAll(".circle");
+let player ={red,blue}
 let turn = "red";
-let level = {
-  level1: "unlocked",
-  level2: "locked",
-  level3: "locked",
-};
+const levels = [1,2,3];
+const unlockedLevels = [];
 
 
-
-const levelUnlocker=()=>{
-  if(nodes[0].style.backgroundColor!=="pink"&&
-     nodes[1].style.backgroundColor!=="pink"&&
-     nodes[2].style.backgroundColor!=="pink"&&
-     nodes[3].style.backgroundColor!=="pink"&&
-     nodes[4].style.backgroundColor!=="pink"&&
-     nodes[5].style.backgroundColor!=="pink")
-     {
-      level.level2="unlocked";
-      console.log("huiiiiiii");
-     }
-     if(nodes[6].style.backgroundColor!=="pink"&&
-     nodes[7].style.backgroundColor!=="pink"&&
-     nodes[8].style.backgroundColor!=="pink"&&
-     nodes[9].style.backgroundColor!=="pink"&&
-     nodes[10].style.backgroundColor!=="pink"&&
-     nodes[11].style.backgroundColor!=="pink")
-     {
-      level.level3="unlocked";
-     }
-}
 
 const changeTurn = () => {
   return turn === "red" ? "blue" : "red";
 };
 
-Array.from(nodes).forEach((e) => {
+const islevel =(level)=>{
+  if(level===1){return true;}
+  else if(unlockedLevels.includes(level)){return true;}
+  else{ return false;}
+}
+
+const checkUnlockNextlevel=(level)=>{
+  let levelnodes = document.querySelectorAll(`.circle.level-${level}`);
+  let flag;
+  for(let i=0; i<6; i++){
+    if(levelnodes[i].style.backgroundColor==="")
+    {
+      flag=false;
+      break;
+    }
+    else{
+      flag=true;
+    }
+  }
+  if(flag){
+    unlockedLevels.push(level+1);
+  }
+}
+
+const moveSelect = (e,turn) =>{
+  if(e.style.backgroundColor==`${turn}`){
+    e.style.border = "2px solid yellow";
+    return e.classList[3];
+  }
+  else{
+    console.log("Movement phase Invalid")
+  }
+}
+
+levels.forEach( (level)=>{
+  let nodes = document.querySelectorAll(`.circle.level-${level}`);
+  
+  Array.from(nodes).forEach((e) => {
   e.addEventListener("click", (k) => {
-    e.style.backgroundColor = turn;
-    turn = changeTurn();
-    levelUnlocker();
-    console.log(k);
-  });
-});
+    //PLACEMENT PHASE
+    if(islevel(level) && player[turn].titan>0 && e.style.backgroundColor!="red" && e.style.backgroundColor!="blue"){
+        e.style.backgroundColor = turn;
+        player[turn].titan--;
+        // console.log(`${turn} : ${player[turn].titan}`);
+        turn = changeTurn();
+        checkUnlockNextlevel(level);
+    }
+    //MOVEMENT PHASE
+    else if(player[turn].titan==0){
+      //node = SELECT(e,turn)
+      //TARGET(e,turn,node compare node codition for movement)
+      let nodeSelected = moveSelect(e,turn);
+      
+      // let node = e.classList[3];
+     console.log(nodeSelected);
+     turn = changeTurn();
+    }
+    else{
+      console.log("Invalid");
+    }
+    
+  })
+})
+})
+
 
