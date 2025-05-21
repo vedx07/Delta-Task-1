@@ -81,28 +81,105 @@ body{
 
 
 
-
-
-
-
-
-
 .svg-container{
-    height: 600px;
-    width: 600px;
+    height: 400px;
+    width: 400px;
     background-color: white;
     background-image: url("hex-grid.svg");
     background-size: cover;
     border-radius: 10px;
     box-shadow: 0px 0px 100px rgba(255, 255, 255, 0.2);
+    
 
+}
+.circle{
+    position: relative;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    /* background-color:pink; */
+    border: 2px solid black;
+    display: inline-block;
+    cursor: pointer;
+}
+.c1 {
+    top: 73px;
+    left: 125px;
+}
+.c2 {
+    top: 73px;
+    left: 235px;
+}
+.c3 {
+    top: 190px;
+    left: 276px;
+}
+.c4 {
+    top: 305px;
+    left: 185px;
+}
+.c5 {
+    top: 305px;
+    left: 26px;
+}
+.c6 {
+    top: 189px;
+    left: -62px;
+}
+.c7 {
+    top: 115px;
+    left: 3px;
+}
+.c8 {
+    top: 115px;
+    left: 65px;
+}
+.c9 {
+    top: 190px;
+    left: 83px;
+}
+.c10 {
+    top: 267px;
+    left: 19px;
+}
+.c11 {
+    top: 267px;
+    left: -93px;
+}
+.c12 {
+    top: 189px;
+    left: -162px;
+}
+.c13 {
+    top: 155px;
+    left: -115px;
+}
+.c14 {
+    top: 155px;
+    left: -101px;
+}
+.c15 {
+    top: 190px;
+    left: -105px;
+}
+.c16 {
+    top: 225px;
+    left: -148px;
+}
+.c17 {
+    top: 207px;
+    left: 171px;
+}
+.c18 {
+    top: 169px;
+    left: 127px;
 }
 
 
+
+
+
 @media (max-width:1250px) {
-    body{
-        /* background-color: aqua; */
-    }
     .container{
     flex-direction: column;
     justify-content: center;
@@ -123,10 +200,6 @@ body{
     justify-content: space-around;
     align-items: center;
  }
-    .svg-container{
-    height: 400px;
-    width: 400px;
-  }
   .scorecard,.control{
     width: 40%;
   }
